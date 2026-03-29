@@ -5,293 +5,605 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Alignment Reset</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #3f352f;
-      background: #f8f3ee;
-      line-height: 1.6;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f2ec;
+      color: #3e342e;
+      line-height: 1.65;
     }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
     .container {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
-    section {
-      padding: 72px 0;
+
+    .section {
+      padding: 88px 0;
     }
+
     .hero {
-      background: linear-gradient(to bottom, #f7f1ea, #fbf8f5);
-      text-align: center;
-      padding-top: 88px;
-      padding-bottom: 72px;
+      background:
+        radial-gradient(circle at top left, rgba(216, 235, 231, 0.55), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(234, 223, 211, 0.8), transparent 35%),
+        linear-gradient(180deg, #f8f3ee 0%, #fbf8f5 100%);
+      overflow: hidden;
+      position: relative;
     }
-    h1, h2, h3 {
-      margin-top: 0;
-      color: #3f352f;
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: center;
+      min-height: 720px;
     }
-    h1 {
-      font-size: 46px;
-      line-height: 1.15;
-      max-width: 820px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 20px;
-    }
-    h2 {
-      font-size: 34px;
-      line-height: 1.2;
-      margin-bottom: 18px;
-      text-align: center;
-    }
-    h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    p.lead {
-      font-size: 20px;
-      color: #5e5149;
-      max-width: 760px;
-      margin: 0 auto 28px;
-    }
-    p {
-      margin: 0 0 16px;
-    }
-    .btn {
+
+    .eyebrow {
       display: inline-block;
-      background: #a88d79;
-      color: white;
-      text-decoration: none;
-      padding: 16px 28px;
-      border-radius: 14px;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-    .btn:hover {
-      background: #947965;
-    }
-    .badge-row {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .badge {
-      background: white;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8e7462;
+      background: rgba(255,255,255,0.75);
       border: 1px solid #eaded2;
       border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 14px;
-      color: #6b5a4e;
+      padding: 10px 16px;
+      margin-bottom: 20px;
     }
-    .hero img {
-      width: 100%;
-      max-width: 430px;
-      border-radius: 24px;
-      margin-top: 32px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-weight: 500;
+      color: #3e342e;
     }
-    .soft {
-      background: #ffffff;
+
+    h1 {
+      font-size: 60px;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
     }
-    .muted {
-      background: #f5eee7;
+
+    h2 {
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 18px;
     }
-    .intro-copy {
+
+    h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: #5e5149;
+      max-width: 700px;
+      margin: 0 0 28px;
+    }
+
+    .center-lead {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: #5e5149;
       max-width: 760px;
       margin: 0 auto;
       text-align: center;
-      color: #5e5149;
-      font-size: 18px;
     }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 16px;
+      padding: 17px 28px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .btn-primary {
+      background: #a88d79;
+      color: #ffffff;
+      box-shadow: 0 14px 30px rgba(168, 141, 121, 0.22);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #6c584b;
+      border: 1px solid #e4d7cb;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #6b5a4e;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #eaded2;
+      border-radius: 999px;
+      padding: 9px 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.03);
+    }
+
+    .mini-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+      max-width: 720px;
+    }
+
+    .mini-proof div {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #5e5149;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid #eaded2;
+      border-radius: 18px;
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 34px;
+      padding: 18px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 30px 70px rgba(62, 52, 46, 0.10);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-card img {
+      border-radius: 28px;
+      width: 100%;
+      height: 640px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .floating-note {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: -28px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid #eaded2;
+      border-radius: 24px;
+      padding: 20px 22px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.08);
+    }
+
+    .floating-note .small-title {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a88d79;
+      margin-bottom: 8px;
+    }
+
+    .floating-note p {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #5e5149;
+      font-size: 15px;
+    }
+
+    .soft {
+      background: #fffdfa;
+    }
+
+    .muted {
+      background: #f2ebe4;
+    }
+
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 28px;
-      margin-top: 36px;
+      margin-top: 42px;
     }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 36px;
+      margin-top: 42px;
     }
+
     .card {
-      background: white;
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 18px 36px rgba(62, 52, 46, 0.06);
+      border: 1px solid rgba(234, 223, 211, 0.75);
     }
-    .card.soft-card {
+
+    .card.alt {
       background: #faf6f2;
     }
+
+    .card p:last-child,
+    .card ul:last-child {
+      margin-bottom: 0;
+    }
+
     .list {
       margin: 0;
       padding-left: 18px;
+      font-family: Arial, sans-serif;
       color: #5e5149;
     }
+
     .list li {
-      margin-bottom: 10px;
+      margin-bottom: 11px;
     }
-    .step-number {
-      display: inline-block;
-      width: 42px;
-      height: 42px;
-      line-height: 42px;
-      text-align: center;
-      border-radius: 14px;
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
       background: #eadfd3;
       color: #7a6253;
-      font-weight: bold;
-      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 16px;
     }
-    .testimonial {
-      text-align: left;
+
+    .split-head {
+      max-width: 860px;
+      margin: 0 auto 10px;
+      text-align: center;
     }
-    .quote {
-      font-size: 22px;
+
+    .testimonial .quote {
+      font-size: 24px;
       line-height: 1.35;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
+
+    .testimonial p {
+      font-family: Arial, sans-serif;
+      color: #5e5149;
+      margin-bottom: 0;
+    }
+
     .author {
-      font-weight: bold;
-      margin-top: 14px;
-      color: #7a6253;
+      margin-top: 18px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      color: #8e7462;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 13px;
     }
+
     .pricing-card.featured {
       background: #a88d79;
-      color: white;
+      color: #ffffff;
+      transform: translateY(-8px);
     }
+
+    .pricing-card.featured h3,
     .pricing-card.featured p,
-    .pricing-card.featured li,
-    .pricing-card.featured h3 {
-      color: white;
+    .pricing-card.featured li {
+      color: #ffffff;
     }
+
+    .pricing-card.featured .tag {
+      background: rgba(255,255,255,0.18);
+      color: #ffffff;
+    }
+
     .tag {
       display: inline-block;
-      margin-bottom: 14px;
-      background: rgba(255,255,255,0.18);
+      margin-bottom: 16px;
+      padding: 8px 12px;
       border-radius: 999px;
-      padding: 7px 12px;
+      font-family: Arial, sans-serif;
       font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 0.06em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      background: #f1e6dc;
+      color: #8e7462;
     }
-    .cta-box {
-      max-width: 760px;
+
+    .price {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 18px;
+      color: #3e342e;
+    }
+
+    .pricing-card.featured .price {
+      color: #ffffff;
+    }
+
+    .cta-panel {
+      max-width: 860px;
       margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(250,246,242,0.96) 100%);
+      border: 1px solid #eaded2;
+      border-radius: 32px;
+      padding: 48px 34px;
+      box-shadow: 0 22px 44px rgba(62, 52, 46, 0.07);
       text-align: center;
-      background: white;
-      border-radius: 24px;
-      padding: 40px 28px;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
     }
-    .faq-item {
-      max-width: 820px;
-      margin: 0 auto 18px;
-      background: white;
-      padding: 24px;
+
+    .cta-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0 30px;
+    }
+
+    .cta-step {
+      background: #ffffff;
+      border: 1px solid #eaded2;
       border-radius: 18px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+      padding: 18px 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
     }
-    .small {
-      font-size: 14px;
+
+    .cta-step strong {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #a88d79;
+      margin-bottom: 8px;
+    }
+
+    .cta-step span {
+      font-family: Arial, sans-serif;
+      color: #5e5149;
+      font-size: 15px;
+    }
+
+    .small-note {
+      font-family: Arial, sans-serif;
       color: #7d6a5d;
+      font-size: 14px;
+      margin-top: 16px;
     }
-    @media (max-width: 900px) {
-      h1 { font-size: 36px; }
-      h2 { font-size: 28px; }
-      .grid-2, .grid-3 {
+
+    .faq-item {
+      max-width: 860px;
+      margin: 0 auto 18px;
+      background: #ffffff;
+      border: 1px solid #eaded2;
+      border-radius: 22px;
+      padding: 26px 26px 22px;
+      box-shadow: 0 12px 24px rgba(62, 52, 46, 0.04);
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+      font-family: Arial, sans-serif;
+      color: #5e5149;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .cta-steps,
+      .mini-proof {
         grid-template-columns: 1fr;
       }
-      section {
-        padding: 56px 0;
+
+      .hero-grid {
+        min-height: auto;
+        gap: 34px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .hero-card img {
+        height: auto;
+      }
+
+      .floating-note {
+        position: static;
+        margin-top: 18px;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+
+      .section {
+        padding: 68px 0;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero">
+  <section class="hero section">
     <div class="container">
-      <h1>Release the Root Cause of What’s Keeping You Stuck</h1>
-      <p class="lead">
-        A private healing experience for spiritually open, high-performing individuals who want real relief from burnout, anxiety, overwhelm, and feeling stuck — often beginning in the very first session.
-      </p>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Private Healing Experience</div>
+          <h1>Release the Root Cause of What’s Keeping You Stuck</h1>
+          <p class="lead">
+            A private healing experience for spiritually open, high-performing individuals who want real relief from burnout, anxiety, overwhelm, and feeling stuck — often beginning in the very first session.
+          </p>
 
-      <a class="btn" href="https://oasishealthwellness.clinicsense.com/">
-        Book Your Private Consultation
-      </a>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Private Consultation</a>
+            <a class="btn btn-secondary" href="#testimonials">See Client Results</a>
+          </div>
 
-      <div class="badge-row">
-        <div class="badge">⭐⭐⭐⭐⭐ 100+ 5-Star Reviews</div>
-        <div class="badge">Trusted by 100+ clients</div>
-        <div class="badge">Verified Google testimonials</div>
+          <div class="badge-row">
+            <div class="badge">⭐⭐⭐⭐⭐ 100+ 5-Star Reviews</div>
+            <div class="badge">Trusted by 100+ clients</div>
+            <div class="badge">Verified Google testimonials</div>
+          </div>
+
+          <div class="mini-proof">
+            <div>Feel shifts during the session</div>
+            <div>Get to the root quickly</div>
+            <div>Leave grounded and clear</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" alt="Grace portrait">
+          </div>
+          <div class="floating-note">
+            <div class="small-title">Deep Alignment Reset</div>
+            <p>
+              A calm, rooted, personalized healing experience designed to create real movement — not just temporary relief.
+            </p>
+          </div>
+        </div>
       </div>
-
-      <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" alt="Grace portrait" />
     </div>
   </section>
 
-  <section class="soft">
+  <section class="soft section">
     <div class="container">
-      <h2>You’ve done the work — but still don’t feel fully free</h2>
-      <p class="intro-copy">
-        Maybe you’ve already invested in healing, coaching, therapy, or other modalities. You’ve looked for answers. You’ve tried to move forward. And yet, something still feels unresolved.
-      </p>
+      <div class="split-head">
+        <h2>You’ve done the work — but still don’t feel fully free</h2>
+        <p class="center-lead">
+          Maybe you’ve already invested in healing, coaching, therapy, or other modalities. You’ve looked for answers. You’ve tried to move forward. And yet, something still feels unresolved.
+        </p>
+      </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>If this sounds familiar...</h3>
+          <h3>You may still be experiencing:</h3>
           <ul class="list">
             <li>Burnout that won’t fully lift</li>
             <li>Anxiety or inner tension that keeps returning</li>
             <li>Physical or emotional heaviness</li>
+            <li>Confusion about what’s really going on</li>
             <li>Feeling stuck, blocked, or out of alignment</li>
+            <li>Frustration after trying many things with little real change</li>
           </ul>
         </div>
-        <div class="card soft-card">
-          <h3>You may be craving...</h3>
+
+        <div class="card alt">
+          <h3>You’re likely craving:</h3>
           <ul class="list">
             <li>Relief you can actually feel</li>
-            <li>A deeper root-cause approach</li>
-            <li>Something holistic and grounded</li>
-            <li>A healing experience you can trust</li>
+            <li>A root-cause approach instead of surface-level coping</li>
+            <li>Something holistic, grounded, and trustworthy</li>
+            <li>Peace, clarity, empowerment, and forward movement</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="muted">
+  <section class="muted section">
     <div class="container">
-      <h2>This is for you if...</h2>
+      <div class="split-head">
+        <h2>This is for you if...</h2>
+        <p class="center-lead">
+          You’re spiritually open, deeply ready for change, and tired of trial-and-error healing that never seems to get to the root.
+        </p>
+      </div>
+
       <div class="grid-3">
         <div class="card">
-          <h3>You’re spiritually open</h3>
-          <p>But you still want something real, grounded, and results-oriented.</p>
+          <h3>You want real results</h3>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            You are open to holistic work, but you still want something tangible, grounded, and meaningful.
+          </p>
         </div>
+
         <div class="card">
-          <h3>You’ve tried many things</h3>
-          <p>And you’re tired of trial-and-error healing that never gets to the root.</p>
+          <h3>You’ve tried many modalities</h3>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            You’ve invested in healing before, but you still feel like something essential hasn’t shifted.
+          </p>
         </div>
+
         <div class="card">
-          <h3>You’re ready for movement</h3>
-          <p>You want peace, clarity, empowerment, and forward progress in your life.</p>
+          <h3>You’re ready to move forward</h3>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            You want support that helps you feel lighter, clearer, calmer, and more empowered in your life.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="soft">
+  <section class="soft section">
     <div class="container">
-      <h2>What makes this different</h2>
-      <p class="intro-copy">
-        This is not just a conversation. This is not just energy work. This is not a one-size-fits-all session.
-      </p>
+      <div class="split-head">
+        <h2>What makes this different</h2>
+        <p class="center-lead">
+          This is not just a conversation. This is not just energy work. This is not a one-size-fits-all session.
+        </p>
+      </div>
 
       <div class="grid-2">
         <div class="card">
@@ -303,8 +615,9 @@
             <li>Leave more grounded, relaxed, peaceful, and clear</li>
           </ul>
         </div>
-        <div class="card soft-card">
-          <h3>A blend of:</h3>
+
+        <div class="card alt">
+          <h3>Your session may include:</h3>
           <ul class="list">
             <li>Reiki</li>
             <li>Osteodouce</li>
@@ -317,74 +630,107 @@
     </div>
   </section>
 
-  <section class="muted">
+  <section class="muted section">
     <div class="container">
-      <h2>The Root Release Alignment Method™</h2>
+      <div class="split-head">
+        <h2>The Root Release Alignment Method™</h2>
+        <p class="center-lead">
+          A simple, calming process designed to help you understand what’s happening, experience real shifts, and integrate them with more clarity and support.
+        </p>
+      </div>
+
       <div class="grid-3">
         <div class="card">
-          <div class="step-number">1</div>
+          <div class="step-num">1</div>
           <h3>Clarity & Root Identification</h3>
-          <p>We begin with a focused conversation to uncover what you want to heal and identify the deeper root of the issue — not just the visible symptoms.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            We begin with a focused conversation to uncover what you want to heal and identify the deeper root of the issue — not just the visible symptoms.
+          </p>
         </div>
+
         <div class="card">
-          <div class="step-number">2</div>
+          <div class="step-num">2</div>
           <h3>Energetic Release & Real-Time Shift</h3>
-          <p>Through body-based and frequency-based work, your system is supported in releasing what no longer serves you. Many clients notice sensations and shifts during the session itself.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            Through body-based and frequency-based work, your system is supported in releasing what no longer serves you. Many clients notice sensations and shifts during the session itself.
+          </p>
         </div>
+
         <div class="card">
-          <div class="step-number">3</div>
+          <div class="step-num">3</div>
           <h3>Integration & Grounded Transformation</h3>
-          <p>We talk through your experience, answer questions, and help you integrate the shifts so you leave feeling more grounded, supported, and clear on next steps.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            We talk through your experience, answer questions, and help you integrate the shifts so you leave feeling more grounded, supported, and clear on next steps.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="soft">
+  <section class="soft section" id="testimonials">
     <div class="container">
-      <h2>Real Words From Real Clients</h2>
-      <p class="intro-copy">Trusted by 100+ clients with verified Google reviews</p>
+      <div class="split-head">
+        <h2>Real Words From Real Clients</h2>
+        <p class="center-lead">Trusted by 100+ clients with verified Google reviews</p>
+      </div>
 
       <div class="grid-3">
         <div class="card testimonial">
           <div class="quote">“She experienced a shift immediately — something we had never seen before.”</div>
-          <p>My mom had an amazing session with Grace, and the change was undeniable. Right after, when we went to the grocery store, she was practically running — which is unheard of for her.</p>
-          <div class="author">— Angela</div>
+          <p>
+            My mom had an amazing session with Grace, and the change was undeniable. Right after, when we went to the grocery store, she was practically running — which is unheard of for her. It was like something lifted instantly.
+          </p>
+          <div class="author">Angela</div>
         </div>
+
         <div class="card testimonial">
           <div class="quote">“You can feel the difference because she works from multiple levels.”</div>
-          <p>Grace is extremely knowledgeable, and what I love most is how she uses different techniques together. It feels complete. You can tell the work is addressing your whole system.</p>
-          <div class="author">— J.M.</div>
+          <p>
+            Grace is extremely knowledgeable, and what I love most is how she uses different techniques together. It doesn’t feel one-dimensional — it feels complete. You can tell the work is addressing your whole system.
+          </p>
+          <div class="author">J.M.</div>
         </div>
+
         <div class="card testimonial">
           <div class="quote">“You’ll feel like a completely different person after.”</div>
-          <p>Grace is truly a powerful healer. After working with her, I felt lighter, more energized, and like myself again — like a million bucks.</p>
-          <div class="author">— K.P.</div>
+          <p>
+            Grace is truly a powerful healer. After working with her, I felt lighter, more energized, and like myself again — like a million bucks.
+          </p>
+          <div class="author">K.P.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="muted">
+  <section class="muted section">
     <div class="container">
-      <h2>Choose the level of support that fits your healing journey</h2>
+      <div class="split-head">
+        <h2>Choose the level of support that fits your healing journey</h2>
+        <p class="center-lead">
+          Begin with the level of support that feels most aligned for where you are right now.
+        </p>
+      </div>
 
       <div class="grid-3">
         <div class="card pricing-card">
           <h3>3-Session Reset</h3>
-          <p>A focused private healing package for those who want meaningful movement in a short container.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            A focused private healing package for those who want meaningful movement in a shorter container.
+          </p>
           <ul class="list">
             <li>3 private sessions</li>
             <li>Root cause identification</li>
             <li>Personalized healing support</li>
             <li>Integration after each session</li>
           </ul>
-          <p><strong>Investment:</strong> $450–$750</p>
+          <div class="price">Investment: $450–$750</div>
         </div>
 
         <div class="card pricing-card">
           <h3>5-Session Transformation</h3>
-          <p>A deeper healing container for those ready for more sustained support and transformation.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            A deeper healing container for those ready for more sustained support and transformation.
+          </p>
           <ul class="list">
             <li>5 private sessions</li>
             <li>Deeper pattern work</li>
@@ -392,13 +738,15 @@
             <li>Integration after each session</li>
             <li>Email support between sessions</li>
           </ul>
-          <p><strong>Investment:</strong> $750–$1,250</p>
+          <div class="price">Investment: $750–$1,250</div>
         </div>
 
         <div class="card pricing-card featured">
-          <div class="tag">RECOMMENDED</div>
+          <div class="tag">Recommended</div>
           <h3>Premium Transformation Package</h3>
-          <p>For clients ready to fully commit to deeper healing, support, and momentum.</p>
+          <p style="font-family: Arial, sans-serif;">
+            For clients ready to fully commit to deeper healing, support, and momentum.
+          </p>
           <ul class="list">
             <li>5 private sessions</li>
             <li>Full Root Release Alignment Method™</li>
@@ -406,45 +754,66 @@
             <li>Ongoing integration guidance</li>
             <li>High-touch private support</li>
           </ul>
-          <p><strong>Investment:</strong> Starting at $900</p>
+          <div class="price">Investment: Starting at $900</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="soft">
+  <section class="soft section">
     <div class="container">
       <div class="grid-2">
         <div class="card">
           <h3>Bonus: Post-Session Integration Support</h3>
-          <p>Receive integration support designed to help you stabilize and deepen the shifts from each session so your healing continues beyond the time you spend in session.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            Receive support designed to help you stabilize and deepen the shifts from each session so your healing continues beyond the time you spend together.
+          </p>
         </div>
-        <div class="card soft-card">
+
+        <div class="card alt">
           <h3>Guarantee: A Risk-Free First Step</h3>
-          <p>If after your first session you do not feel any noticeable shift or relief, you’ll receive an additional session at no cost.</p>
+          <p style="font-family: Arial, sans-serif; color:#5e5149;">
+            If after your first session you do not feel any noticeable shift or relief, you’ll receive an additional session at no cost.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="muted">
+  <section class="muted section">
     <div class="container">
-      <div class="cta-box">
+      <div class="cta-panel">
         <h2>Book your private consultation</h2>
-        <p class="intro-copy" style="margin-bottom: 24px;">
+        <p class="center-lead" style="margin-bottom: 0;">
           If you’re tired of feeling stuck and ready for meaningful change, the next step is a private consultation to explore fit, goals, and the best healing package for you.
         </p>
-        <a class="btn" href="https://oasishealthwellness.clinicsense.com/">
-          Book Your Private Consultation
-        </a>
-        <p class="small" style="margin-top:16px;">Limited private client availability.</p>
+
+        <div class="cta-steps">
+          <div class="cta-step">
+            <strong>Step 1</strong>
+            <span>Book your consultation online</span>
+          </div>
+          <div class="cta-step">
+            <strong>Step 2</strong>
+            <span>Share what you want to heal and experience</span>
+          </div>
+          <div class="cta-step">
+            <strong>Step 3</strong>
+            <span>Receive the best-fit recommendation</span>
+          </div>
+        </div>
+
+        <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Private Consultation</a>
+        <div class="small-note">Limited private client availability.</div>
       </div>
     </div>
   </section>
 
-  <section class="soft">
+  <section class="soft section">
     <div class="container">
-      <h2>Frequently Asked Questions</h2>
+      <div class="split-head">
+        <h2>Frequently Asked Questions</h2>
+      </div>
 
       <div class="faq-item">
         <h3>How many sessions will I need?</h3>
