@@ -1,115 +1,472 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Alignment Reset</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #3f352f;
+      background: #f8f3ee;
+      line-height: 1.6;
+    }
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      padding: 72px 0;
+    }
+    .hero {
+      background: linear-gradient(to bottom, #f7f1ea, #fbf8f5);
+      text-align: center;
+      padding-top: 88px;
+      padding-bottom: 72px;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      color: #3f352f;
+    }
+    h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    p.lead {
+      font-size: 20px;
+      color: #5e5149;
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+    p {
+      margin: 0 0 16px;
+    }
+    .btn {
+      display: inline-block;
+      background: #a88d79;
+      color: white;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+    .btn:hover {
+      background: #947965;
+    }
+    .badge-row {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .badge {
+      background: white;
+      border: 1px solid #eaded2;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      color: #6b5a4e;
+    }
+    .hero img {
+      width: 100%;
+      max-width: 430px;
+      border-radius: 24px;
+      margin-top: 32px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    }
+    .soft {
+      background: #ffffff;
+    }
+    .muted {
+      background: #f5eee7;
+    }
+    .intro-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      color: #5e5149;
+      font-size: 18px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+    }
+    .card.soft-card {
+      background: #faf6f2;
+    }
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: #5e5149;
+    }
+    .list li {
+      margin-bottom: 10px;
+    }
+    .step-number {
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 14px;
+      background: #eadfd3;
+      color: #7a6253;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+    .testimonial {
+      text-align: left;
+    }
+    .quote {
+      font-size: 22px;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .author {
+      font-weight: bold;
+      margin-top: 14px;
+      color: #7a6253;
+    }
+    .pricing-card.featured {
+      background: #a88d79;
+      color: white;
+    }
+    .pricing-card.featured p,
+    .pricing-card.featured li,
+    .pricing-card.featured h3 {
+      color: white;
+    }
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+    }
+    .cta-box {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      background: white;
+      border-radius: 24px;
+      padding: 40px 28px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+    }
+    .faq-item {
+      max-width: 820px;
+      margin: 0 auto 18px;
+      background: white;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+    }
+    .small {
+      font-size: 14px;
+      color: #7d6a5d;
+    }
+    @media (max-width: 900px) {
+      h1 { font-size: 36px; }
+      h2 { font-size: 28px; }
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      section {
+        padding: 56px 0;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body style="margin:0; font-family: Arial, sans-serif; background:#f8f3ee; color:#3f352f;">
+  <section class="hero">
+    <div class="container">
+      <h1>Release the Root Cause of What’s Keeping You Stuck</h1>
+      <p class="lead">
+        A private healing experience for spiritually open, high-performing individuals who want real relief from burnout, anxiety, overwhelm, and feeling stuck — often beginning in the very first session.
+      </p>
 
-<!-- HERO -->
-<section style="text-align:center; padding:80px 20px; max-width:900px; margin:auto;">
-  <h1 style="font-size:42px; line-height:1.2;">
-    Release the Root Cause of What’s Keeping You Stuck
-  </h1>
+      <a class="btn" href="https://oasishealthwellness.clinicsense.com/">
+        Book Your Private Consultation
+      </a>
 
-  <p style="font-size:20px; color:#5e5149; max-width:700px; margin:20px auto;">
-    A private healing experience for spiritually open individuals who want real relief from burnout, anxiety, and feeling stuck — often beginning in the very first session.
-  </p>
+      <div class="badge-row">
+        <div class="badge">⭐⭐⭐⭐⭐ 100+ 5-Star Reviews</div>
+        <div class="badge">Trusted by 100+ clients</div>
+        <div class="badge">Verified Google testimonials</div>
+      </div>
 
-  <a href="https://oasishealthwellness.clinicsense.com/" 
-  style="background:#a88d79; color:white; padding:16px 28px; border-radius:14px; text-decoration:none; font-weight:600; display:inline-block; margin-top:20px;">
-    Book Your Private Consultation
-  </a>
-
-  <p style="margin-top:20px;">⭐⭐⭐⭐⭐ Trusted by 100+ clients</p>
-
-  <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" 
-  style="width:100%; max-width:420px; border-radius:20px; margin-top:30px;">
-</section>
-
-<!-- PAIN -->
-<section style="background:#ffffff; padding:80px 20px;">
-  <div style="max-width:900px; margin:auto; text-align:center;">
-    <h2>You’ve done the work… but still don’t feel fully free</h2>
-
-    <p style="max-width:700px; margin:20px auto; color:#5e5149;">
-      You’ve tried different healing methods, invested time and energy — but something still feels unresolved.
-    </p>
-
-    <div style="margin-top:30px;">
-      <p>• Burnout that won’t fully lift</p>
-      <p>• Anxiety or tension that keeps returning</p>
-      <p>• Feeling stuck or blocked</p>
-      <p>• Confusion about what’s really going on</p>
+      <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" alt="Grace portrait" />
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- METHOD -->
-<section style="padding:80px 20px;">
-  <div style="max-width:900px; margin:auto; text-align:center;">
-    <h2>The Root Release Alignment Method™</h2>
+  <section class="soft">
+    <div class="container">
+      <h2>You’ve done the work — but still don’t feel fully free</h2>
+      <p class="intro-copy">
+        Maybe you’ve already invested in healing, coaching, therapy, or other modalities. You’ve looked for answers. You’ve tried to move forward. And yet, something still feels unresolved.
+      </p>
 
-    <div style="margin-top:40px;">
-      <p><b>1. Clarity & Root Identification</b><br>
-      We quickly uncover the deeper root — not just the symptoms.</p>
-
-      <p><b>2. Energetic Release & Real-Time Shift</b><br>
-      Experience physical, emotional, and energetic shifts during the session.</p>
-
-      <p><b>3. Integration & Grounded Transformation</b><br>
-      Leave feeling clear, grounded, and aligned.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>If this sounds familiar...</h3>
+          <ul class="list">
+            <li>Burnout that won’t fully lift</li>
+            <li>Anxiety or inner tension that keeps returning</li>
+            <li>Physical or emotional heaviness</li>
+            <li>Feeling stuck, blocked, or out of alignment</li>
+          </ul>
+        </div>
+        <div class="card soft-card">
+          <h3>You may be craving...</h3>
+          <ul class="list">
+            <li>Relief you can actually feel</li>
+            <li>A deeper root-cause approach</li>
+            <li>Something holistic and grounded</li>
+            <li>A healing experience you can trust</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RESULTS -->
-<section style="background:#ffffff; padding:80px 20px;">
-  <div style="max-width:900px; margin:auto; text-align:center;">
-    <h2>Real Client Results</h2>
+  <section class="muted">
+    <div class="container">
+      <h2>This is for you if...</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>You’re spiritually open</h3>
+          <p>But you still want something real, grounded, and results-oriented.</p>
+        </div>
+        <div class="card">
+          <h3>You’ve tried many things</h3>
+          <p>And you’re tired of trial-and-error healing that never gets to the root.</p>
+        </div>
+        <div class="card">
+          <h3>You’re ready for movement</h3>
+          <p>You want peace, clarity, empowerment, and forward progress in your life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p><b>“She experienced a shift immediately…”</b><br>
-    My mom was practically running after her session — unheard of.<br>— Angela</p>
+  <section class="soft">
+    <div class="container">
+      <h2>What makes this different</h2>
+      <p class="intro-copy">
+        This is not just a conversation. This is not just energy work. This is not a one-size-fits-all session.
+      </p>
 
-    <p><b>“You can feel the difference…”</b><br>
-    Her work addresses the whole system.<br>— J.M.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>The Deep Alignment Reset helps you:</h3>
+          <ul class="list">
+            <li>Quickly identify the root of what’s keeping you stuck</li>
+            <li>Feel shifts during the session itself</li>
+            <li>Release emotional, mental, physical, and energetic blocks</li>
+            <li>Leave more grounded, relaxed, peaceful, and clear</li>
+          </ul>
+        </div>
+        <div class="card soft-card">
+          <h3>A blend of:</h3>
+          <ul class="list">
+            <li>Reiki</li>
+            <li>Osteodouce</li>
+            <li>Quantum Frequency Coaching</li>
+            <li>Body-based awareness</li>
+            <li>Guided verbal integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p><b>“I felt like a completely different person…”</b><br>
-    Lighter, clearer, and energized.<br>— K.P.</p>
-  </div>
-</section>
+  <section class="muted">
+    <div class="container">
+      <h2>The Root Release Alignment Method™</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="step-number">1</div>
+          <h3>Clarity & Root Identification</h3>
+          <p>We begin with a focused conversation to uncover what you want to heal and identify the deeper root of the issue — not just the visible symptoms.</p>
+        </div>
+        <div class="card">
+          <div class="step-number">2</div>
+          <h3>Energetic Release & Real-Time Shift</h3>
+          <p>Through body-based and frequency-based work, your system is supported in releasing what no longer serves you. Many clients notice sensations and shifts during the session itself.</p>
+        </div>
+        <div class="card">
+          <div class="step-number">3</div>
+          <h3>Integration & Grounded Transformation</h3>
+          <p>We talk through your experience, answer questions, and help you integrate the shifts so you leave feeling more grounded, supported, and clear on next steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- PACKAGES -->
-<section style="padding:80px 20px;">
-  <div style="max-width:900px; margin:auto; text-align:center;">
-    <h2>Work With Me</h2>
+  <section class="soft">
+    <div class="container">
+      <h2>Real Words From Real Clients</h2>
+      <p class="intro-copy">Trusted by 100+ clients with verified Google reviews</p>
 
-    <p><b>3-Session Reset</b><br>
-    Ideal for meaningful shifts in a short time<br>
-    $450–$750</p>
+      <div class="grid-3">
+        <div class="card testimonial">
+          <div class="quote">“She experienced a shift immediately — something we had never seen before.”</div>
+          <p>My mom had an amazing session with Grace, and the change was undeniable. Right after, when we went to the grocery store, she was practically running — which is unheard of for her.</p>
+          <div class="author">— Angela</div>
+        </div>
+        <div class="card testimonial">
+          <div class="quote">“You can feel the difference because she works from multiple levels.”</div>
+          <p>Grace is extremely knowledgeable, and what I love most is how she uses different techniques together. It feels complete. You can tell the work is addressing your whole system.</p>
+          <div class="author">— J.M.</div>
+        </div>
+        <div class="card testimonial">
+          <div class="quote">“You’ll feel like a completely different person after.”</div>
+          <p>Grace is truly a powerful healer. After working with her, I felt lighter, more energized, and like myself again — like a million bucks.</p>
+          <div class="author">— K.P.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p><b>5-Session Transformation</b><br>
-    Deeper healing and support<br>
-    $750–$1,250</p>
+  <section class="muted">
+    <div class="container">
+      <h2>Choose the level of support that fits your healing journey</h2>
 
-    <p><b>Premium Transformation</b><br>
-    High-touch support and deeper results<br>
-    Starting at $900</p>
-  </div>
-</section>
+      <div class="grid-3">
+        <div class="card pricing-card">
+          <h3>3-Session Reset</h3>
+          <p>A focused private healing package for those who want meaningful movement in a short container.</p>
+          <ul class="list">
+            <li>3 private sessions</li>
+            <li>Root cause identification</li>
+            <li>Personalized healing support</li>
+            <li>Integration after each session</li>
+          </ul>
+          <p><strong>Investment:</strong> $450–$750</p>
+        </div>
 
-<!-- FINAL CTA -->
-<section style="background:#ffffff; padding:80px 20px; text-align:center;">
-  <h2>Ready to feel real relief and alignment?</h2>
+        <div class="card pricing-card">
+          <h3>5-Session Transformation</h3>
+          <p>A deeper healing container for those ready for more sustained support and transformation.</p>
+          <ul class="list">
+            <li>5 private sessions</li>
+            <li>Deeper pattern work</li>
+            <li>Personalized healing support</li>
+            <li>Integration after each session</li>
+            <li>Email support between sessions</li>
+          </ul>
+          <p><strong>Investment:</strong> $750–$1,250</p>
+        </div>
 
-  <p>Limited private client spots available.</p>
+        <div class="card pricing-card featured">
+          <div class="tag">RECOMMENDED</div>
+          <h3>Premium Transformation Package</h3>
+          <p>For clients ready to fully commit to deeper healing, support, and momentum.</p>
+          <ul class="list">
+            <li>5 private sessions</li>
+            <li>Full Root Release Alignment Method™</li>
+            <li>Email support between sessions</li>
+            <li>Ongoing integration guidance</li>
+            <li>High-touch private support</li>
+          </ul>
+          <p><strong>Investment:</strong> Starting at $900</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <a href="https://oasishealthwellness.clinicsense.com/" 
-  style="background:#a88d79; color:white; padding:16px 28px; border-radius:14px; text-decoration:none; font-weight:600;">
-    Book Your Private Consultation
-  </a>
-</section>
+  <section class="soft">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Bonus: Post-Session Integration Support</h3>
+          <p>Receive integration support designed to help you stabilize and deepen the shifts from each session so your healing continues beyond the time you spend in session.</p>
+        </div>
+        <div class="card soft-card">
+          <h3>Guarantee: A Risk-Free First Step</h3>
+          <p>If after your first session you do not feel any noticeable shift or relief, you’ll receive an additional session at no cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="muted">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Book your private consultation</h2>
+        <p class="intro-copy" style="margin-bottom: 24px;">
+          If you’re tired of feeling stuck and ready for meaningful change, the next step is a private consultation to explore fit, goals, and the best healing package for you.
+        </p>
+        <a class="btn" href="https://oasishealthwellness.clinicsense.com/">
+          Book Your Private Consultation
+        </a>
+        <p class="small" style="margin-top:16px;">Limited private client availability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>How many sessions will I need?</h3>
+        <p>Most clients begin to notice meaningful shifts within 3 to 5 sessions, depending on what they are moving through and the depth of support needed.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do I need to understand energy healing for this to work?</h3>
+        <p>No. You only need to come open, willing, and ready to receive. The process is designed to meet you where you are.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Will I feel something during the session?</h3>
+        <p>Many clients do. They often report feeling shifts physically, emotionally, mentally, or energetically during the session itself.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is this talk-based or body-based?</h3>
+        <p>It is a combination of both. We begin with conversation and clarity, move into the healing experience, and finish with integration.</p>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
