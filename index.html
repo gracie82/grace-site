@@ -5,20 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Alignment Reset</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f9f5f1;
+      color: #3f352f;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
       font-family: Georgia, "Times New Roman", serif;
-      background: #f7f2ec;
-      color: #3e342e;
-      line-height: 1.65;
+      font-weight: 500;
+      color: #3f352f;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 58px;
+      line-height: 1.08;
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 40px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: #5f534b;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     img {
@@ -26,111 +55,65 @@
       display: block;
     }
 
-    a {
-      text-decoration: none;
-    }
-
     .container {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     .section {
-      padding: 88px 0;
+      padding: 90px 0;
     }
 
     .hero {
       background:
-        radial-gradient(circle at top left, rgba(216, 235, 231, 0.55), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(234, 223, 211, 0.8), transparent 35%),
-        linear-gradient(180deg, #f8f3ee 0%, #fbf8f5 100%);
-      overflow: hidden;
-      position: relative;
+        radial-gradient(circle at top left, rgba(218, 232, 226, 0.55), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(236, 223, 214, 0.75), transparent 36%),
+        linear-gradient(180deg, #faf6f2 0%, #fdfaf8 100%);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 46px;
+      gap: 54px;
       align-items: center;
-      min-height: 720px;
+      min-height: 760px;
     }
 
     .eyebrow {
       display: inline-block;
-      font-family: Arial, sans-serif;
       font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #8e7462;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid #eaded2;
+      color: #9a7f6d;
+      border: 1px solid #eaded4;
       border-radius: 999px;
       padding: 10px 16px;
-      margin-bottom: 20px;
-    }
-
-    h1, h2, h3 {
-      margin-top: 0;
-      font-weight: 500;
-      color: #3e342e;
-    }
-
-    h1 {
-      font-size: 60px;
-      line-height: 1.06;
-      letter-spacing: -0.02em;
+      background: rgba(255,255,255,0.72);
       margin-bottom: 22px;
-    }
-
-    h2 {
-      font-size: 42px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    h3 {
-      font-size: 25px;
-      margin-bottom: 12px;
     }
 
     .lead {
-      font-family: Arial, sans-serif;
       font-size: 20px;
-      color: #5e5149;
-      max-width: 700px;
-      margin: 0 0 28px;
+      max-width: 690px;
+      margin-bottom: 28px;
     }
 
-    .center-lead {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      color: #5e5149;
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .btn-row {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 30px;
-      margin-bottom: 22px;
+      margin: 30px 0 22px;
     }
 
     .btn {
       display: inline-block;
-      border-radius: 16px;
-      padding: 17px 28px;
-      font-family: Arial, sans-serif;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 600;
       font-size: 16px;
-      font-weight: 700;
-      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .btn:hover {
@@ -139,102 +122,95 @@
     }
 
     .btn-primary {
-      background: #a88d79;
-      color: #ffffff;
-      box-shadow: 0 14px 30px rgba(168, 141, 121, 0.22);
+      background: #b28f77;
+      color: white;
+      box-shadow: 0 14px 28px rgba(178, 143, 119, 0.20);
     }
 
     .btn-secondary {
-      background: #ffffff;
-      color: #6c584b;
-      border: 1px solid #e4d7cb;
+      background: white;
+      color: #6a584d;
+      border: 1px solid #e5d8cd;
     }
 
-    .badge-row {
+    .badges {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 8px;
+      margin-bottom: 26px;
     }
 
     .badge {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: #6b5a4e;
       background: rgba(255,255,255,0.88);
-      border: 1px solid #eaded2;
+      border: 1px solid #eaded4;
       border-radius: 999px;
       padding: 9px 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.03);
+      font-size: 14px;
+      color: #6a584d;
     }
 
-    .mini-proof {
+    .proof-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 26px;
-      max-width: 720px;
+      max-width: 760px;
     }
 
-    .mini-proof div {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: #5e5149;
+    .proof {
       background: rgba(255,255,255,0.82);
-      border: 1px solid #eaded2;
-      border-radius: 18px;
+      border: 1px solid #eaded4;
+      border-radius: 20px;
       padding: 16px 14px;
       text-align: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+      font-size: 14px;
+      color: #62554d;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.03);
     }
 
-    .hero-visual {
+    .hero-image-wrap {
       position: relative;
     }
 
-    .hero-card {
-      position: relative;
-      border-radius: 34px;
+    .hero-image-card {
+      background: rgba(255,255,255,0.60);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 36px;
       padding: 18px;
-      background: rgba(255,255,255,0.68);
-      border: 1px solid rgba(255,255,255,0.85);
-      box-shadow: 0 30px 70px rgba(62, 52, 46, 0.10);
-      backdrop-filter: blur(6px);
+      box-shadow: 0 28px 60px rgba(63, 53, 47, 0.09);
+      backdrop-filter: blur(8px);
     }
 
-    .hero-card img {
-      border-radius: 28px;
+    .hero-image-card img {
       width: 100%;
-      height: 640px;
+      height: 650px;
       object-fit: cover;
       object-position: center;
+      border-radius: 28px;
     }
 
-    .floating-note {
+    .hero-note {
       position: absolute;
-      left: 24px;
-      right: 24px;
       bottom: -28px;
-      background: rgba(255,255,255,0.96);
-      border: 1px solid #eaded2;
+      left: 28px;
+      right: 28px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #eaded4;
       border-radius: 24px;
       padding: 20px 22px;
-      box-shadow: 0 18px 35px rgba(0,0,0,0.08);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.07);
     }
 
-    .floating-note .small-title {
-      font-family: Arial, sans-serif;
+    .hero-note small {
+      display: block;
       font-size: 12px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #a88d79;
+      color: #b28f77;
       margin-bottom: 8px;
     }
 
-    .floating-note p {
+    .hero-note p {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #5e5149;
       font-size: 15px;
     }
 
@@ -242,8 +218,15 @@
       background: #fffdfa;
     }
 
-    .muted {
-      background: #f2ebe4;
+    .warm {
+      background: #f4ede7;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 18px;
     }
 
     .grid-2 {
@@ -261,125 +244,97 @@
     }
 
     .card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 30px;
-      box-shadow: 0 18px 36px rgba(62, 52, 46, 0.06);
-      border: 1px solid rgba(234, 223, 211, 0.75);
+      background: white;
+      border: 1px solid #ede1d7;
+      border-radius: 30px;
+      padding: 32px;
+      box-shadow: 0 18px 34px rgba(63, 53, 47, 0.05);
     }
 
     .card.alt {
-      background: #faf6f2;
-    }
-
-    .card p:last-child,
-    .card ul:last-child {
-      margin-bottom: 0;
+      background: #fbf7f3;
     }
 
     .list {
       margin: 0;
       padding-left: 18px;
-      font-family: Arial, sans-serif;
-      color: #5e5149;
+      color: #5f534b;
     }
 
     .list li {
-      margin-bottom: 11px;
+      margin-bottom: 12px;
     }
 
     .step-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: #eadfd3;
-      color: #7a6253;
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      background: #efe2d7;
+      color: #8b6f5d;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: Arial, sans-serif;
       font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .split-head {
-      max-width: 860px;
-      margin: 0 auto 10px;
-      text-align: center;
-    }
-
     .testimonial .quote {
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 24px;
       line-height: 1.35;
-      margin-bottom: 16px;
-    }
-
-    .testimonial p {
-      font-family: Arial, sans-serif;
-      color: #5e5149;
-      margin-bottom: 0;
+      color: #3f352f;
+      margin-bottom: 14px;
     }
 
     .author {
       margin-top: 18px;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      color: #8e7462;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8f7564;
     }
 
-    .pricing-card.featured {
-      background: #a88d79;
-      color: #ffffff;
+    .featured {
+      background: linear-gradient(180deg, #b28f77 0%, #a7846c 100%);
+      color: white;
       transform: translateY(-8px);
     }
 
-    .pricing-card.featured h3,
-    .pricing-card.featured p,
-    .pricing-card.featured li {
-      color: #ffffff;
-    }
-
-    .pricing-card.featured .tag {
-      background: rgba(255,255,255,0.18);
-      color: #ffffff;
+    .featured h3,
+    .featured p,
+    .featured li,
+    .featured .price {
+      color: white;
     }
 
     .tag {
       display: inline-block;
-      margin-bottom: 16px;
       padding: 8px 12px;
       border-radius: 999px;
-      font-family: Arial, sans-serif;
+      background: rgba(255,255,255,0.18);
+      color: white;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      background: #f1e6dc;
-      color: #8e7462;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
     .price {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      font-weight: 700;
       margin-top: 18px;
-      color: #3e342e;
+      font-weight: 700;
+      color: #3f352f;
     }
 
-    .pricing-card.featured .price {
-      color: #ffffff;
-    }
-
-    .cta-panel {
+    .cta-box {
       max-width: 860px;
       margin: 0 auto;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(250,246,242,0.96) 100%);
-      border: 1px solid #eaded2;
-      border-radius: 32px;
-      padding: 48px 34px;
-      box-shadow: 0 22px 44px rgba(62, 52, 46, 0.07);
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(251,247,243,0.96) 100%);
+      border: 1px solid #eaded4;
+      border-radius: 34px;
+      padding: 50px 34px;
+      box-shadow: 0 22px 40px rgba(63, 53, 47, 0.06);
       text-align: center;
     }
 
@@ -387,92 +342,67 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin: 28px 0 30px;
+      margin: 30px 0;
     }
 
     .cta-step {
-      background: #ffffff;
-      border: 1px solid #eaded2;
-      border-radius: 18px;
+      background: white;
+      border: 1px solid #eaded4;
+      border-radius: 20px;
       padding: 18px 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
     }
 
     .cta-step strong {
       display: block;
-      font-family: Arial, sans-serif;
       font-size: 12px;
-      text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: #a88d79;
+      text-transform: uppercase;
+      color: #b28f77;
       margin-bottom: 8px;
-    }
-
-    .cta-step span {
-      font-family: Arial, sans-serif;
-      color: #5e5149;
-      font-size: 15px;
-    }
-
-    .small-note {
-      font-family: Arial, sans-serif;
-      color: #7d6a5d;
-      font-size: 14px;
-      margin-top: 16px;
     }
 
     .faq-item {
       max-width: 860px;
       margin: 0 auto 18px;
-      background: #ffffff;
-      border: 1px solid #eaded2;
-      border-radius: 22px;
-      padding: 26px 26px 22px;
-      box-shadow: 0 12px 24px rgba(62, 52, 46, 0.04);
+      background: white;
+      border: 1px solid #eaded4;
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 12px 22px rgba(63, 53, 47, 0.04);
     }
 
     .faq-item p {
       margin-bottom: 0;
-      font-family: Arial, sans-serif;
-      color: #5e5149;
     }
 
-    .center {
-      text-align: center;
+    .small-note {
+      font-size: 14px;
+      color: #7e6d62;
+      margin-top: 16px;
     }
 
     @media (max-width: 980px) {
+      h1 { font-size: 42px; }
+      h2 { font-size: 32px; }
+
       .hero-grid,
       .grid-2,
       .grid-3,
-      .cta-steps,
-      .mini-proof {
+      .proof-row,
+      .cta-steps {
         grid-template-columns: 1fr;
       }
 
-      .hero-grid {
-        min-height: auto;
-        gap: 34px;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 32px;
-      }
-
-      .hero-card img {
+      .hero-image-card img {
         height: auto;
       }
 
-      .floating-note {
+      .hero-note {
         position: static;
         margin-top: 18px;
       }
 
-      .pricing-card.featured {
+      .featured {
         transform: none;
       }
 
@@ -494,33 +424,31 @@
             A private healing experience for spiritually open, high-performing individuals who want real relief from burnout, anxiety, overwhelm, and feeling stuck — often beginning in the very first session.
           </p>
 
-          <div class="btn-row">
+          <div class="button-row">
             <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Private Consultation</a>
             <a class="btn btn-secondary" href="#testimonials">See Client Results</a>
           </div>
 
-          <div class="badge-row">
+          <div class="badges">
             <div class="badge">⭐⭐⭐⭐⭐ 100+ 5-Star Reviews</div>
             <div class="badge">Trusted by 100+ clients</div>
             <div class="badge">Verified Google testimonials</div>
           </div>
 
-          <div class="mini-proof">
-            <div>Feel shifts during the session</div>
-            <div>Get to the root quickly</div>
-            <div>Leave grounded and clear</div>
+          <div class="proof-row">
+            <div class="proof">Feel shifts during the session</div>
+            <div class="proof">Get to the root quickly</div>
+            <div class="proof">Leave grounded and clear</div>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-card">
+        <div class="hero-image-wrap">
+          <div class="hero-image-card">
             <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" alt="Grace portrait">
           </div>
-          <div class="floating-note">
-            <div class="small-title">Deep Alignment Reset</div>
-            <p>
-              A calm, rooted, personalized healing experience designed to create real movement — not just temporary relief.
-            </p>
+          <div class="hero-note">
+            <small>Deep Alignment Reset</small>
+            <p>A calm, personalized healing experience designed to create real movement — not just temporary relief.</p>
           </div>
         </div>
       </div>
@@ -529,12 +457,10 @@
 
   <section class="soft section">
     <div class="container">
-      <div class="split-head">
-        <h2>You’ve done the work — but still don’t feel fully free</h2>
-        <p class="center-lead">
-          Maybe you’ve already invested in healing, coaching, therapy, or other modalities. You’ve looked for answers. You’ve tried to move forward. And yet, something still feels unresolved.
-        </p>
-      </div>
+      <h2>You’ve done the work — but still don’t feel fully free</h2>
+      <p class="section-intro">
+        Maybe you’ve already invested in healing, coaching, therapy, or other modalities. You’ve looked for answers. You’ve tried to move forward. And yet, something still feels unresolved.
+      </p>
 
       <div class="grid-2">
         <div class="card">
@@ -550,7 +476,7 @@
         </div>
 
         <div class="card alt">
-          <h3>You’re likely craving:</h3>
+          <h3>You may be ready for:</h3>
           <ul class="list">
             <li>Relief you can actually feel</li>
             <li>A root-cause approach instead of surface-level coping</li>
@@ -562,35 +488,27 @@
     </div>
   </section>
 
-  <section class="muted section">
+  <section class="warm section">
     <div class="container">
-      <div class="split-head">
-        <h2>This is for you if...</h2>
-        <p class="center-lead">
-          You’re spiritually open, deeply ready for change, and tired of trial-and-error healing that never seems to get to the root.
-        </p>
-      </div>
+      <h2>This is for you if...</h2>
+      <p class="section-intro">
+        You’re spiritually open, deeply ready for change, and tired of trial-and-error healing that never seems to get to the root.
+      </p>
 
       <div class="grid-3">
         <div class="card">
           <h3>You want real results</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            You are open to holistic work, but you still want something tangible, grounded, and meaningful.
-          </p>
+          <p>You are open to holistic work, but still want something tangible, grounded, and meaningful.</p>
         </div>
 
         <div class="card">
-          <h3>You’ve tried many modalities</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            You’ve invested in healing before, but you still feel like something essential hasn’t shifted.
-          </p>
+          <h3>You’ve tried many things</h3>
+          <p>You’ve invested in healing before, but still feel like something essential hasn’t shifted.</p>
         </div>
 
         <div class="card">
           <h3>You’re ready to move forward</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            You want support that helps you feel lighter, clearer, calmer, and more empowered in your life.
-          </p>
+          <p>You want support that helps you feel lighter, clearer, calmer, and more empowered in your life.</p>
         </div>
       </div>
     </div>
@@ -598,12 +516,10 @@
 
   <section class="soft section">
     <div class="container">
-      <div class="split-head">
-        <h2>What makes this different</h2>
-        <p class="center-lead">
-          This is not just a conversation. This is not just energy work. This is not a one-size-fits-all session.
-        </p>
-      </div>
+      <h2>What makes this different</h2>
+      <p class="section-intro">
+        This is not just a conversation. This is not just energy work. This is not a one-size-fits-all session.
+      </p>
 
       <div class="grid-2">
         <div class="card">
@@ -630,38 +546,30 @@
     </div>
   </section>
 
-  <section class="muted section">
+  <section class="warm section">
     <div class="container">
-      <div class="split-head">
-        <h2>The Root Release Alignment Method™</h2>
-        <p class="center-lead">
-          A simple, calming process designed to help you understand what’s happening, experience real shifts, and integrate them with more clarity and support.
-        </p>
-      </div>
+      <h2>The Root Release Alignment Method™</h2>
+      <p class="section-intro">
+        A simple, calming process designed to help you understand what’s happening, experience real shifts, and integrate them with more clarity and support.
+      </p>
 
       <div class="grid-3">
         <div class="card">
           <div class="step-num">1</div>
           <h3>Clarity & Root Identification</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            We begin with a focused conversation to uncover what you want to heal and identify the deeper root of the issue — not just the visible symptoms.
-          </p>
+          <p>We begin with a focused conversation to uncover what you want to heal and identify the deeper root of the issue — not just the visible symptoms.</p>
         </div>
 
         <div class="card">
           <div class="step-num">2</div>
           <h3>Energetic Release & Real-Time Shift</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            Through body-based and frequency-based work, your system is supported in releasing what no longer serves you. Many clients notice sensations and shifts during the session itself.
-          </p>
+          <p>Through body-based and frequency-based work, your system is supported in releasing what no longer serves you. Many clients notice sensations and shifts during the session itself.</p>
         </div>
 
         <div class="card">
           <div class="step-num">3</div>
           <h3>Integration & Grounded Transformation</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            We talk through your experience, answer questions, and help you integrate the shifts so you leave feeling more grounded, supported, and clear on next steps.
-          </p>
+          <p>We talk through your experience, answer questions, and help you integrate the shifts so you leave feeling more grounded, supported, and clear on next steps.</p>
         </div>
       </div>
     </div>
@@ -669,54 +577,42 @@
 
   <section class="soft section" id="testimonials">
     <div class="container">
-      <div class="split-head">
-        <h2>Real Words From Real Clients</h2>
-        <p class="center-lead">Trusted by 100+ clients with verified Google reviews</p>
-      </div>
+      <h2>Real Words From Real Clients</h2>
+      <p class="section-intro">Trusted by 100+ clients with verified Google reviews</p>
 
       <div class="grid-3">
         <div class="card testimonial">
           <div class="quote">“She experienced a shift immediately — something we had never seen before.”</div>
-          <p>
-            My mom had an amazing session with Grace, and the change was undeniable. Right after, when we went to the grocery store, she was practically running — which is unheard of for her. It was like something lifted instantly.
-          </p>
+          <p>My mom had an amazing session with Grace, and the change was undeniable. Right after, when we went to the grocery store, she was practically running — which is unheard of for her. It was like something lifted instantly.</p>
           <div class="author">Angela</div>
         </div>
 
         <div class="card testimonial">
           <div class="quote">“You can feel the difference because she works from multiple levels.”</div>
-          <p>
-            Grace is extremely knowledgeable, and what I love most is how she uses different techniques together. It doesn’t feel one-dimensional — it feels complete. You can tell the work is addressing your whole system.
-          </p>
+          <p>Grace is extremely knowledgeable, and what I love most is how she uses different techniques together. It doesn’t feel one-dimensional — it feels complete. You can tell the work is addressing your whole system.</p>
           <div class="author">J.M.</div>
         </div>
 
         <div class="card testimonial">
           <div class="quote">“You’ll feel like a completely different person after.”</div>
-          <p>
-            Grace is truly a powerful healer. After working with her, I felt lighter, more energized, and like myself again — like a million bucks.
-          </p>
+          <p>Grace is truly a powerful healer. After working with her, I felt lighter, more energized, and like myself again — like a million bucks.</p>
           <div class="author">K.P.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="muted section">
+  <section class="warm section">
     <div class="container">
-      <div class="split-head">
-        <h2>Choose the level of support that fits your healing journey</h2>
-        <p class="center-lead">
-          Begin with the level of support that feels most aligned for where you are right now.
-        </p>
-      </div>
+      <h2>Choose the level of support that fits your healing journey</h2>
+      <p class="section-intro">
+        Begin with the level of support that feels most aligned for where you are right now.
+      </p>
 
       <div class="grid-3">
-        <div class="card pricing-card">
+        <div class="card">
           <h3>3-Session Reset</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            A focused private healing package for those who want meaningful movement in a shorter container.
-          </p>
+          <p>A focused private healing package for those who want meaningful movement in a shorter container.</p>
           <ul class="list">
             <li>3 private sessions</li>
             <li>Root cause identification</li>
@@ -726,11 +622,9 @@
           <div class="price">Investment: $450–$750</div>
         </div>
 
-        <div class="card pricing-card">
+        <div class="card">
           <h3>5-Session Transformation</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            A deeper healing container for those ready for more sustained support and transformation.
-          </p>
+          <p>A deeper healing container for those ready for more sustained support and transformation.</p>
           <ul class="list">
             <li>5 private sessions</li>
             <li>Deeper pattern work</li>
@@ -741,12 +635,10 @@
           <div class="price">Investment: $750–$1,250</div>
         </div>
 
-        <div class="card pricing-card featured">
+        <div class="card featured">
           <div class="tag">Recommended</div>
           <h3>Premium Transformation Package</h3>
-          <p style="font-family: Arial, sans-serif;">
-            For clients ready to fully commit to deeper healing, support, and momentum.
-          </p>
+          <p>For clients ready to fully commit to deeper healing, support, and momentum.</p>
           <ul class="list">
             <li>5 private sessions</li>
             <li>Full Root Release Alignment Method™</li>
@@ -765,41 +657,37 @@
       <div class="grid-2">
         <div class="card">
           <h3>Bonus: Post-Session Integration Support</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            Receive support designed to help you stabilize and deepen the shifts from each session so your healing continues beyond the time you spend together.
-          </p>
+          <p>Receive support designed to help you stabilize and deepen the shifts from each session so your healing continues beyond the time you spend together.</p>
         </div>
 
         <div class="card alt">
           <h3>Guarantee: A Risk-Free First Step</h3>
-          <p style="font-family: Arial, sans-serif; color:#5e5149;">
-            If after your first session you do not feel any noticeable shift or relief, you’ll receive an additional session at no cost.
-          </p>
+          <p>If after your first session you do not feel any noticeable shift or relief, you’ll receive an additional session at no cost.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="muted section">
+  <section class="warm section">
     <div class="container">
-      <div class="cta-panel">
+      <div class="cta-box">
         <h2>Book your private consultation</h2>
-        <p class="center-lead" style="margin-bottom: 0;">
+        <p class="section-intro" style="margin-bottom:0;">
           If you’re tired of feeling stuck and ready for meaningful change, the next step is a private consultation to explore fit, goals, and the best healing package for you.
         </p>
 
         <div class="cta-steps">
           <div class="cta-step">
             <strong>Step 1</strong>
-            <span>Book your consultation online</span>
+            Book your consultation online
           </div>
           <div class="cta-step">
             <strong>Step 2</strong>
-            <span>Share what you want to heal and experience</span>
+            Share what you want to heal and experience
           </div>
           <div class="cta-step">
             <strong>Step 3</strong>
-            <span>Receive the best-fit recommendation</span>
+            Receive the best-fit recommendation
           </div>
         </div>
 
@@ -811,9 +699,7 @@
 
   <section class="soft section">
     <div class="container">
-      <div class="split-head">
-        <h2>Frequently Asked Questions</h2>
-      </div>
+      <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
         <h3>How many sessions will I need?</h3>
