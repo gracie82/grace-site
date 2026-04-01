@@ -3,623 +3,702 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nervous System Reset Experience</title>
+  <title>Private Nervous System Alignment Experience</title>
+  <meta
+    name="description"
+    content="A private 3–5 week online experience for self-aware overthinkers ready to reconnect with calm, clarity, and grounded self-trust."
+  />
   <style>
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --surface-soft: #f3efe9;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --accent: #1f6d67;
+      --accent-dark: #16534e;
+      --accent-soft: #d9ece9;
+      --border: #e6dfd6;
+      --shadow: 0 16px 40px rgba(18, 38, 36, 0.08);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: #f9f5f1;
-      color: #3f352f;
-      line-height: 1.7;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .section { padding: 80px 0; }
+    .section-tight { padding: 56px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
     }
 
     h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 500;
-      color: #3f352f;
-      margin-top: 0;
-    }
-
-    h1 {
-      font-size: 56px;
-      line-height: 1.08;
-      margin-bottom: 22px;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: 38px;
       line-height: 1.15;
-      margin-bottom: 18px;
-      text-align: center;
+      margin: 0 0 16px;
+      font-weight: 700;
     }
 
-    h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
+    h1 { font-size: clamp(2.3rem, 6vw, 4.5rem); letter-spacing: -0.035em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.025em; }
+    h3 { font-size: 1.25rem; letter-spacing: -0.01em; }
 
     p {
       margin: 0 0 16px;
-      color: #5f534b;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
-
-    a { text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: 100%;
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section { padding: 88px 0; }
 
     .hero {
+      padding: 36px 0 70px;
       background:
-        radial-gradient(circle at top left, rgba(218, 232, 226, 0.55), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(236, 223, 214, 0.75), transparent 36%),
-        linear-gradient(180deg, #faf6f2 0%, #fdfaf8 100%);
+        radial-gradient(circle at top left, rgba(31, 109, 103, 0.08), transparent 34%),
+        linear-gradient(180deg, #fcfbf9 0%, #f7f5f2 100%);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0 28px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(31, 109, 103, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 54px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
       align-items: center;
-      min-height: 720px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #9a7f6d;
-      border: 1px solid #eaded4;
-      border-radius: 999px;
-      padding: 10px 16px;
-      background: rgba(255,255,255,0.72);
-      margin-bottom: 22px;
+    .hero-copy p.lead {
+      font-size: 1.18rem;
+      max-width: 62ch;
+      color: var(--text);
     }
 
-    .lead {
-      font-size: 20px;
-      max-width: 690px;
-      margin-bottom: 28px;
-    }
-
-    .button-row {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin: 30px 0 22px;
+      margin: 28px 0 16px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 16px 28px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 16px;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
-
-    .btn-primary {
-      background: #b28f77;
-      color: white;
-      box-shadow: 0 14px 28px rgba(178, 143, 119, 0.20);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: #6a584d;
-      border: 1px solid #e5d8cd;
-    }
-
-    .badges {
+    .microcopy {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 26px;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-top: 12px;
     }
 
-    .badge {
-      background: rgba(255,255,255,0.88);
-      border: 1px solid #eaded4;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-size: 14px;
-      color: #6a584d;
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 540px;
     }
 
     .proof-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 14px;
-      max-width: 760px;
+      margin-top: 28px;
     }
 
-    .proof {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid #eaded4;
-      border-radius: 20px;
-      padding: 16px 14px;
+    .proof-pill {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 14px;
       text-align: center;
-      font-size: 14px;
-      color: #62554d;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.03);
+      font-weight: 600;
+      color: var(--text);
     }
 
-    .hero-image-wrap {
-      position: relative;
-    }
-
-    .hero-image-card {
-      background: rgba(255,255,255,0.60);
-      border: 1px solid rgba(255,255,255,0.95);
-      border-radius: 36px;
-      padding: 18px;
-      box-shadow: 0 28px 60px rgba(63, 53, 47, 0.09);
-      backdrop-filter: blur(8px);
-    }
-
-    .hero-image-card img {
-      width: 100%;
-      height: 650px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 28px;
-    }
-
-    .hero-note {
-      position: absolute;
-      bottom: -28px;
-      left: 28px;
-      right: 28px;
-      background: rgba(255,255,255,0.95);
-      border: 1px solid #eaded4;
-      border-radius: 24px;
-      padding: 20px 22px;
-      box-shadow: 0 18px 34px rgba(0,0,0,0.07);
-    }
-
-    .hero-note small {
-      display: block;
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #b28f77;
-      margin-bottom: 8px;
-    }
-
-    .hero-note p {
-      margin: 0;
-      font-size: 15px;
-    }
-
-    .soft { background: #fffdfa; }
-    .warm { background: #f4ede7; }
-
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 18px;
-    }
-
-    .grid-2 {
+    .grid-2, .grid-3 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin-top: 42px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 42px;
     }
 
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 42px;
-    }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
 
     .card {
-      background: white;
-      border: 1px solid #ede1d7;
-      border-radius: 30px;
-      padding: 32px;
-      box-shadow: 0 18px 34px rgba(63, 53, 47, 0.05);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .card.alt {
-      background: #fbf7f3;
+    .card.soft {
+      background: var(--surface-soft);
+      box-shadow: none;
     }
 
-    .list {
+    .checklist, .faq-list, .plain-list {
+      list-style: none;
+      padding: 0;
       margin: 0;
-      padding-left: 18px;
-      color: #5f534b;
     }
 
-    .list li {
-      margin-bottom: 12px;
+    .checklist li, .plain-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 14px;
+      color: var(--text);
     }
 
-    .step-num {
-      width: 50px;
-      height: 50px;
-      border-radius: 18px;
-      background: #efe2d7;
-      color: #8b6f5d;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .checklist li::before, .plain-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 24px;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--accent);
+      transform: translateY(-6px);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.86rem;
       font-weight: 700;
-      margin-bottom: 16px;
     }
 
-    .testimonial .quote {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 28px;
-      line-height: 1.3;
-      color: #3f352f;
-      margin-bottom: 10px;
+    .price {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 8px 0;
     }
 
-    .testimonial p {
-      font-size: 16px;
-      color: #6a5d55;
-      margin-bottom: 0;
+    .price small {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .testimonial {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    blockquote {
+      margin: 0 0 18px;
+      font-size: 1.18rem;
+      color: var(--text);
+      line-height: 1.5;
     }
 
     .author {
-      margin-top: 18px;
-      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #8f7564;
+      color: var(--accent-dark);
     }
 
-    .cta-box {
-      max-width: 860px;
-      margin: 0 auto;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(251,247,243,0.96) 100%);
-      border: 1px solid #eaded4;
+    .cta-band {
+      background: linear-gradient(135deg, #1f6d67 0%, #184f4b 100%);
+      color: #fff;
       border-radius: 34px;
-      padding: 50px 34px;
-      box-shadow: 0 22px 40px rgba(63, 53, 47, 0.06);
-      text-align: center;
+      padding: 40px;
+      box-shadow: var(--shadow);
     }
 
-    .faq-item {
-      max-width: 860px;
-      margin: 0 auto 18px;
-      background: white;
-      border: 1px solid #eaded4;
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 12px 22px rgba(63, 53, 47, 0.04);
+    .cta-band p,
+    .cta-band li {
+      color: rgba(255,255,255,0.88);
     }
 
-    .faq-item p { margin-bottom: 0; }
-
-    .small-note {
-      font-size: 14px;
-      color: #7e6d62;
-      margin-top: 16px;
-      text-align: center;
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
     }
 
-    .center { text-align: center; }
+    .cta-band .btn-primary {
+      background: #fff;
+      color: var(--accent-dark);
+      box-shadow: none;
+    }
 
-    .spacer-cta {
-      margin-top: 28px;
-      text-align: center;
+    .cta-band .btn-secondary {
+      border-color: rgba(255,255,255,0.3);
+      color: #fff;
+    }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    details + details { margin-top: 14px; }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p { margin-top: 14px; }
+
+    footer {
+      padding: 32px 0 56px;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     @media (max-width: 980px) {
-      h1 { font-size: 40px; }
-      h2 { font-size: 30px; }
-
       .hero-grid,
       .grid-2,
       .grid-3,
-      .grid-4,
+      .pricing,
       .proof-row {
         grid-template-columns: 1fr;
       }
 
-      .hero-image-card img {
-        height: auto;
-      }
+      .hero-card img { min-height: 420px; }
+      .price-card.featured { transform: none; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+    }
 
-      .hero-note {
-        position: static;
-        margin-top: 18px;
-      }
-
-      .section {
-        padding: 68px 0;
-      }
+    @media (max-width: 640px) {
+      .section { padding: 64px 0; }
+      .hero { padding-top: 24px; }
+      .card, .price-card, .cta-band, .step { padding: 22px; }
+      .hero-actions, .cta-actions, .top-links { flex-direction: column; }
+      .btn { width: 100%; }
+      .microcopy { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
 <body>
-
-  <section class="hero section">
+  <header class="hero">
     <div class="container">
+      <div class="topbar">
+        <div class="brand">Grace Healing</div>
+        <div class="top-links">
+          <a class="btn btn-secondary" href="#how-it-works">How It Works</a>
+          <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com">Book Your Free Reset Call</a>
+        </div>
+      </div>
+
       <div class="hero-grid">
-        <div>
-          <div class="eyebrow">Nervous System Reset Experience</div>
-          <h1>Feel Calm, Clear, and Like Yourself Again—By Resetting Your Nervous System</h1>
-          <p class="lead">
-            A personalized 3–5 session online experience to release stress, rebalance your energy, and restore your natural state.
-          </p>
+        <div class="hero-copy">
+          <span class="eyebrow">Private support for self-aware overthinkers</span>
+          <h1>Return to a calmer, clearer, more grounded way of being.</h1>
+          <p class="lead">A private 3–5 week online experience for those who feel mentally exhausted, disconnected from themselves, and ready for a deeper kind of support.</p>
+          <p>This work is designed to help you regulate your nervous system, reconnect with your inner clarity, and move forward with more peace, self-trust, and grounded direction.</p>
+          <p>You do not need more information. You need a space where your system can soften enough for real clarity to emerge.</p>
 
-          <div class="button-row">
-            <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Free Reset Call</a>
-            <a class="btn btn-secondary" href="#how-it-works">How It Works</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com">Book Your Free Reset Call</a>
+            <a class="btn btn-secondary" href="#apply">Apply to Work Together</a>
           </div>
 
-          <div class="badges">
-            <div class="badge">⭐⭐⭐⭐⭐ 100+ 5-Star Reviews</div>
-            <div class="badge">Online support from home</div>
-            <div class="badge">Calm, grounded, personalized care</div>
-          </div>
-
-          <div class="proof-row">
-            <div class="proof">Less stress</div>
-            <div class="proof">More clarity</div>
-            <div class="proof">Feel like yourself again</div>
+          <div class="microcopy">
+            <span>⭐⭐⭐⭐⭐ 100+ 5-star reviews</span>
+            <span>Private online sessions</span>
+            <span>Thoughtful, personalized support</span>
           </div>
         </div>
 
-        <div class="hero-image-wrap">
-          <div class="hero-image-card">
-            <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" alt="Grace portrait">
-          </div>
-          <div class="hero-note">
-            <small>Personalized Healing Support</small>
-            <p>A personalized blend of proven techniques tailored to your needs.</p>
-          </div>
+        <div class="hero-card">
+          <img src="https://oasishealthandwellness.ca/wp-content/uploads/2026/02/Grace-6-1536x1024.jpg" alt="Grace portrait" />
         </div>
       </div>
+
+      <div class="proof-row">
+        <div class="proof-pill">Less mental noise</div>
+        <div class="proof-pill">More inner clarity</div>
+        <div class="proof-pill">Grounded decisions</div>
+        <div class="proof-pill">Deeper self-trust</div>
+        <div class="proof-pill">A felt sense of peace</div>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <section class="soft section">
-    <div class="container">
-      <h2>You may be feeling like…</h2>
-      <p class="section-intro">
-        If this sounds familiar, you’re not alone.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <ul class="list">
-            <li>You’re constantly on edge or overwhelmed</li>
-            <li>You feel tired, even when you’ve rested</li>
-            <li>Your mind won’t slow down</li>
-            <li>You’ve tried different things, but nothing fully works</li>
-            <li>You don’t feel like yourself anymore</li>
+  <main>
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card soft">
+          <span class="eyebrow">You may recognize yourself here</span>
+          <h2>You understand a lot about yourself, yet still feel caught in the same inner loops.</h2>
+          <p>You may be highly self-aware. You may have reflected deeply, consumed meaningful content, or tried to think your way through what you are feeling. And still, something underneath remains unsettled.</p>
+          <ul class="checklist">
+            <li>You overthink, second-guess, and struggle to trust your own inner knowing</li>
+            <li>Your mind stays active from the moment you wake up until the moment you fall asleep</li>
+            <li>You feel disconnected from your body, your truth, or the direction of your life</li>
+            <li>You understand your patterns intellectually, but do not feel free from them</li>
+            <li>You are no longer interested in surface-level advice that does not truly shift anything</li>
           </ul>
         </div>
 
-        <div class="card alt">
-          <h3>What you may be craving:</h3>
-          <ul class="list">
-            <li>A calmer nervous system</li>
-            <li>More energy and steadiness</li>
-            <li>Relief that feels real</li>
-            <li>A deeper reset—not just temporary relief</li>
+        <div class="card">
+          <span class="eyebrow">What you are truly seeking</span>
+          <h2>A steadier nervous system, clearer direction, and a deeper sense of self-trust.</h2>
+          <p>This experience is for the person who wants more than temporary relief. It is for someone ready to feel calmer in their body, clearer in their decisions, and more connected to themselves in a lasting way.</p>
+          <ul class="checklist">
+            <li>A quieter inner world and less emotional overwhelm</li>
+            <li>Clarity that feels grounded, not forced</li>
+            <li>Greater connection to your body and internal signals</li>
+            <li>Aligned decisions that genuinely move your life forward</li>
+            <li>A deeper sense of peace about where you are going</li>
           </ul>
+          <div style="margin-top: 28px;">
+            <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com">Book Your Free Reset Call</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="spacer-cta">
-        <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Free Reset Call</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="warm section">
-    <div class="container">
-      <h2>This is for you if:</h2>
-      <p class="section-intro">
-        You’re open to deeper healing and ready for meaningful change across mind, body, and energy.
-      </p>
-
-      <div class="grid-3">
+    <section class="section-tight">
+      <div class="container">
         <div class="card">
-          <h3>You want real change</h3>
-          <p>You want more than insight—you want to actually feel different in your body and daily life.</p>
-        </div>
-
-        <div class="card">
-          <h3>You’ve tried things already</h3>
-          <p>You’ve put effort into feeling better, but something still feels unresolved underneath it all.</p>
-        </div>
-
-        <div class="card">
-          <h3>You’re ready for deeper support</h3>
-          <p>You want a grounded, personalized process that helps you feel calmer, clearer, and more like yourself again.</p>
+          <span class="eyebrow">A different way forward</span>
+          <h2>You cannot think your way out of what your nervous system has not yet resolved.</h2>
+          <p>When your system is dysregulated, clarity becomes harder to access. Decision-making feels heavier. Self-trust gets buried beneath noise. This process supports the body first, so the mind no longer has to carry everything on its own.</p>
         </div>
       </div>
+    </section>
 
-      <div class="spacer-cta">
-        <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Free Reset Call</a>
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <span class="eyebrow">The process</span>
+        <h2>The Nervous System Alignment Method™</h2>
+        <p>A private, supportive process designed to help you move from overthinking and internal overwhelm into steadiness, reconnection, and grounded forward movement.</p>
+
+        <div class="grid-2" style="margin-top: 28px;">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Begin with an application and private clarity call</h3>
+              <p>You will start with a short application so I can understand where you are and what support may be most aligned. If it feels like a fit, you will be invited to a free clarity call.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Regulate what is keeping you in the loop</h3>
+              <p>Together, we gently identify the patterns of stress, overwhelm, and dysregulation that are fueling overthinking and disconnection.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Reconnect with your inner signals</h3>
+              <p>Through personalized sessions, you begin rebuilding trust with your body, your emotions, and your inner guidance so clarity can feel accessible again.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Realign and move forward with grounded clarity</h3>
+              <p>You leave with a calmer inner foundation, clearer decisions, and a more embodied sense of how to move forward in your life.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="soft section" id="how-it-works">
-    <div class="container">
-      <h2>How It Works</h2>
-      <p class="section-intro">
-        A simple guided process designed to help you reset, rebalance, and move forward with more calm and clarity.
-      </p>
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Private ways to work together</span>
+        <h2>The Nervous System Alignment Experience</h2>
+        <p>A personalized online container for those who are ready for real change, delivered with depth, presence, and thoughtful support.</p>
 
-      <div class="grid-4">
-        <div class="card">
-          <div class="step-num">1</div>
-          <h3>Book your free 15-min session</h3>
-          <p>We begin with a short call to understand what’s going on and whether this is the right fit for you.</p>
+        <div class="pricing" style="margin-top: 28px;">
+          <div class="price-card">
+            <h3>3-Week Reset</h3>
+            <p>For those seeking immediate support, renewed clarity, and a strong first recalibration.</p>
+            <div class="price">$570 <small>one 90-minute session per week</small></div>
+            <ul class="plain-list">
+              <li>3 private 90-minute online sessions</li>
+              <li>Personalized support to calm overthinking at the root</li>
+              <li>Guided reconnection to your inner clarity and direction</li>
+              <li>Simple tailored practices to carry the work between sessions</li>
+              <li>Free private clarity call before you begin</li>
+            </ul>
+            <div style="margin-top: 26px; display: grid; gap: 12px;">
+              <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com">Book Your Free Reset Call</a>
+              <a class="btn btn-secondary" href="#apply">Apply to Work Together</a>
+            </div>
+          </div>
+
+          <div class="price-card featured">
+            <span class="badge">Recommended</span>
+            <h3>5-Week Deep Reset</h3>
+            <p>For those wanting deeper support, more integration, and a more lasting shift in how they feel and move through life.</p>
+            <div class="price">$950 <small>one 90-minute session per week</small></div>
+            <ul class="plain-list">
+              <li>5 private 90-minute online sessions</li>
+              <li>Deeper nervous system regulation and support</li>
+              <li>More space to work with recurring emotional patterns</li>
+              <li>Stronger reinforcement of self-trust and aligned action</li>
+              <li>Free private clarity call before you begin</li>
+            </ul>
+            <div style="margin-top: 26px; display: grid; gap: 12px;">
+              <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com">Book Your Free Reset Call</a>
+              <a class="btn btn-secondary" href="#apply">Apply to Work Together</a>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="step-num">2</div>
-          <h3>Identify what’s out of balance</h3>
-          <p>We look at what may be creating stress, overwhelm, and nervous system dysregulation.</p>
-        </div>
+        <div class="grid-2" style="margin-top: 24px;">
+          <div class="card soft">
+            <h3>What this experience is designed to support</h3>
+            <ul class="checklist">
+              <li>Less stress and internal overwhelm</li>
+              <li>More calm and emotional steadiness</li>
+              <li>Clearer direction in your life</li>
+              <li>Grounded decisions that move you forward</li>
+              <li>A stronger felt sense of inner alignment</li>
+            </ul>
+          </div>
 
-        <div class="card">
-          <div class="step-num">3</div>
-          <h3>Move through a 3–5 session reset process</h3>
-          <p>You receive a personalized online experience designed to support real shifts in your system.</p>
-        </div>
-
-        <div class="card">
-          <div class="step-num">4</div>
-          <h3>Feel calmer, clearer, and more like yourself</h3>
-          <p>The goal is not just insight—it’s helping you feel restored in your body, energy, and everyday life.</p>
+          <div class="card soft">
+            <h3>A simple way to reduce hesitation</h3>
+            <p>If after the first session you do not feel a noticeable shift in clarity and calm, you do not continue.</p>
+            <p>This work is designed to feel supportive, steady, and genuinely valuable from the very beginning.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="spacer-cta">
-        <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Free Reset Call</a>
+    <section class="section-tight">
+      <div class="container grid-3">
+        <div class="card testimonial">
+          <div>
+            <span class="eyebrow">Client reflection</span>
+            <blockquote>“I feel like myself again for the first time in years.”</blockquote>
+          </div>
+          <div class="author">— A.M.</div>
+        </div>
+
+        <div class="card testimonial">
+          <div>
+            <span class="eyebrow">Client reflection</span>
+            <blockquote>“My anxiety dropped after just a few sessions.”</blockquote>
+          </div>
+          <div class="author">— J.L.</div>
+        </div>
+
+        <div class="card testimonial">
+          <div>
+            <span class="eyebrow">Client reflection</span>
+            <blockquote>“I finally feel calm in my body.”</blockquote>
+          </div>
+          <div class="author">— K.P.</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="warm section">
-    <div class="container">
-      <h2>Nervous System Reset Experience</h2>
-      <p class="section-intro">
-        A 3–5 session online experience to release stress, rebalance your energy, and restore your natural state.
-      </p>
-
-      <div class="grid-2">
+    <section class="section">
+      <div class="container grid-2">
         <div class="card">
-          <h3>What’s included:</h3>
-          <ul class="list">
-            <li>1 free reset call</li>
-            <li>3–5 personalized online sessions</li>
-            <li>A personalized blend of proven techniques tailored to your needs</li>
-            <li>Grounded support throughout the process</li>
-            <li>Simple next steps to help the shifts feel lasting</li>
+          <span class="eyebrow">Online, yet deeply personal</span>
+          <h2>Yes, this work can be profoundly supportive from the comfort of your home.</h2>
+          <p>Your nervous system does not require a physical office to begin settling. These sessions are guided in a way that is thoughtful, grounded, and designed to help you feel safe enough for real shifts to happen.</p>
+        </div>
+
+        <div class="cta-band" id="apply">
+          <h2>Begin your reset</h2>
+          <p>This experience is intentionally selective and designed for those who are ready for a deeper kind of support.</p>
+          <ul class="checklist" style="margin-top: 18px;">
+            <li>You are tired of living in constant mental noise</li>
+            <li>You want to feel clarity rather than endlessly chase it</li>
+            <li>You are ready for support that feels grounded, personal, and real</li>
           </ul>
-        </div>
 
-        <div class="card alt">
-          <h3>What this helps create:</h3>
-          <ul class="list">
-            <li>Less stress and overwhelm</li>
-            <li>More calm and clarity</li>
-            <li>A stronger sense of inner balance</li>
-            <li>Relief that feels real—not just temporary</li>
-          </ul>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com">Book Your Free Reset Call</a>
+            <a class="btn btn-secondary" href="mailto:grace@graceso.com?subject=Application%20for%20Nervous%20System%20Alignment%20Program">Apply to Work Together</a>
+          </div>
+
+          <p style="margin-top: 16px; font-size: 0.96rem;">I work with a limited number of clients at a time to ensure depth, presence, and thoughtful care.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="soft section">
+    <section class="section-tight">
+      <div class="container">
+        <span class="eyebrow">Questions</span>
+        <h2>Common questions</h2>
+
+        <div class="faq-list" style="margin-top: 24px;">
+          <details>
+            <summary>Do I need prior experience with healing work for this to support me?</summary>
+            <p>No. You do not need any special background or experience. You simply need to be open, willing, and ready for thoughtful support.</p>
+          </details>
+
+          <details>
+            <summary>How do I know whether the 3-week or 5-week experience is right for me?</summary>
+            <p>Many people begin with 3 sessions for a focused reset, while others choose 5 sessions for more depth and integration. We can explore what feels most aligned during your clarity call.</p>
+          </details>
+
+          <details>
+            <summary>Is everything held online?</summary>
+            <p>Yes. This experience is fully online and designed to help you receive private, personalized support from the comfort of your own space.</p>
+          </details>
+
+          <details>
+            <summary>What kinds of modalities or techniques do you use?</summary>
+            <p>The work is tailored to you. The focus is always on helping your system feel calmer, clearer, and more connected, using approaches that support real regulation and embodied change.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="container">
-      <h2>Does this work online?</h2>
-      <p class="section-intro">
-        Yes.
-      </p>
-
-      <div class="cta-box">
-        <p>
-          Your nervous system and energy field don’t depend on location. These sessions are guided in a way that allows your body to respond safely and naturally—wherever you are.
-        </p>
-      </div>
+      <p>Grace Healing — private support for nervous system regulation, clarity, and grounded self-trust.</p>
     </div>
-  </section>
-
-  <section class="warm section" id="testimonials">
-  <div class="container">
-    <h2>Real Words From Real Clients</h2>
-    <p class="section-intro">Trusted by 100+ clients with verified Google reviews</p>
-
-    <div class="grid-3">
-      <div class="card testimonial">
-        <div class="quote">“I feel like myself again for the first time in years.”</div>
-        <p>— A.M.</p>
-      </div>
-
-      <div class="card testimonial">
-        <div class="quote">“My anxiety dropped after just a few sessions.”</div>
-        <p>— J.L.</p>
-      </div>
-
-      <div class="card testimonial">
-        <div class="quote">“I finally feel calm in my body.”</div>
-        <p>— K.P.</p>
-      </div>
-    </div>
-
-         <div class="spacer-cta">
-        <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Free Reset Call</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="soft section">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Ready to feel calm, clear, and like yourself again?</h2>
-        <p class="section-intro" style="margin-bottom:24px;">
-          Start with a free reset call to explore what’s out of balance and whether this process is the right fit for you.
-        </p>
-
-        <a class="btn btn-primary" href="https://oasishealthwellness.clinicsense.com/">Book Your Free Reset Call</a>
-        <div class="small-note">I offer a limited number of online sessions each week to ensure each client receives personalized care.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="warm section">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-
-      <div class="faq-item">
-        <h3>Do I need to know anything about healing work for this to help?</h3>
-        <p>No. You simply need to be open, willing, and ready for support. The process is designed to meet you where you are.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How many sessions will I need?</h3>
-        <p>Many people begin with 3 sessions, while others benefit from 5 depending on what they are moving through.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Is this all online?</h3>
-        <p>Yes. This experience is designed to help you receive personalized support from the comfort of your own home.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What kinds of techniques do you use?</h3>
-        <p>A personalized blend of proven techniques tailored to your needs.</p>
-      </div>
-    </div>
-  </section>
-
+  </footer>
 </body>
 </html>
